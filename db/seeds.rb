@@ -19,3 +19,12 @@ puts "Creating new restaurants"
   )
 end
 puts "Finished!"
+
+puts "Creating new reviews"
+30.times do
+  review = Review.create(
+    content: Faker::Quote.famous_last_words,
+    rating: rand(0..5),
+    restaurant_id: rand(52..61)
+  )
+end

@@ -7,6 +7,8 @@ class RestaurantsController < ApplicationController
   end
 
   def show
+    @average_rating = @restaurant.avg_rating
+    @no_of_reviews = @restaurant.reviews_count
   end
 
   def new

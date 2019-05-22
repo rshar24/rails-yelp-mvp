@@ -17,10 +17,33 @@
   </div><p>
   <div>
     <h2>Reviews</h2>
-    <div>
+    <p><strong>Average Rating: </strong>
+            <% @average_rating.floor.times do %>
+              <i class="fas fa-star"></i>
+            <% end %>
+            <% if (@average_rating / 0.5).to_i.odd? %>
+              <i class="fas fa-star-half-alt"></i>
+              <% (5 - @average_rating).floor.times do %>
+                <i class="far fa-star"></i>
+              <% end %>
+            <% else %>
+              <% (5 - @average_rating).floor.times do %>
+                <i class="far fa-star"></i>
+              <% end %>
+            <% end %>
+          (<%= @no_of_reviews %>)</p>
+    <p><%= link_to 'Add a review', new_restaurant_review_path(@restaurant) %></p>
+    <div class="reviews">
       <% @restaurant.reviews.each do |review| %>
-        <div>
-          <p><strong>Rating: </strong><%= review.rating %></p>
+        <div class="border p-3 my-3 rounded review-card">
+          <p><strong>Rating: </strong>
+            <% review.rating.times do %>
+              <i class="fas fa-star"></i>
+            <% end %>
+            <% (5 - review.rating).times do %>
+              <i class="far fa-star"></i>
+            <% end %>
+          </p>
           <p><%= review.content %></p>
         </div>
       <% end %>
