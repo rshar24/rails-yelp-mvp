@@ -18,8 +18,8 @@
 <script>
   document.querySelector("#review_rating").style.display = "none";
   let stars = document.querySelectorAll(".star_rating");
-  stars.forEach((star, index) => {
-    star.addEventListener("click", (event) => {
+  stars.forEach((element, index) => {
+    element.addEventListener("click", (event) => {
       stars.forEach((item, itemIndex) => {
         item.classList.add("far");;
         if (itemIndex <= index) {
