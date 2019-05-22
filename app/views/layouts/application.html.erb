@@ -12,8 +12,8 @@
 
   <body>
     <class class="navbar px-5 py-3 mb-5 bg-dark text-white">
-      <h4>Restos</h4>
-      <p class='text-right'><%= link_to 'Add Restaurant', new_restaurant_path, class: "text-white" %></p>
+      <h4><%= link_to 'Restos', restaurants_path, class: "text-white nounderline" %></h4>
+      <p class='text-right'><%= link_to 'Add Restaurant', new_restaurant_path, class: "text-white nounderline" %></p>
     </class>
     <%= yield %>
   </body>

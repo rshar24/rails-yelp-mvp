@@ -19,6 +19,19 @@ class Restaurant < ApplicationRecord
     end
   end
 
+  def avg_rating_dec
+    total = self.reviews.count
+    total_sum = 0.0
+    if self.reviews.exists?
+      self.reviews.each do |review|
+        total_sum += review.rating
+      end
+      (total_sum.to_f / total).round(1)
+    else
+      return 0.0
+    end
+  end
+
   def reviews_count
     if self.reviews.count.nil?
       return 0
