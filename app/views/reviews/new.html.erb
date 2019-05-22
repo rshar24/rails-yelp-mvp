@@ -21,6 +21,7 @@
   stars.forEach((star, index) => {
     star.addEventListener("click", (event) => {
       stars.forEach((item, itemIndex) => {
+        item.classList.add("far");;
         if (itemIndex <= index) {
           item.classList.remove("far");;
           item.classList.add("fas");
